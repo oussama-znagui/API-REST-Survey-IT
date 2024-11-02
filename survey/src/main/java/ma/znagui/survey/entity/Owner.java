@@ -1,14 +1,13 @@
 package ma.znagui.survey.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
 
 import java.util.List;
-@Getter
-@Setter
+@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -16,6 +15,8 @@ public class Owner {
     @Id
     @GeneratedValue
     private Long id;
+
+    @NotBlank(message = "Le nom du prorietaire ne peut pas etre vide")
     private String name;
 
     @OneToMany(mappedBy = "owner")

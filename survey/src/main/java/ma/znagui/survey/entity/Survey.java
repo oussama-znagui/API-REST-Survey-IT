@@ -18,11 +18,12 @@ public class Survey {
     @GeneratedValue
     private Long id;
     private String title;
+
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="owner_id")
-    private Owner owner;
+    private Owner owner ;
 
     @OneToMany(mappedBy = "survey")
     private List<SurveyEdition> surveyEditions;
