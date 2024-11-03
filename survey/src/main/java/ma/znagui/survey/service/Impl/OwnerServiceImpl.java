@@ -45,4 +45,8 @@ public class OwnerServiceImpl implements OwnerService {
 
 
     }
+
+    public Owner getEntityByID(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Owner", id));
+    }
 }

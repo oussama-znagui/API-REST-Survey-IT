@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import ma.znagui.survey.entity.Owner;
 import ma.znagui.survey.validator.api.UniqueName;
 @Data
 
@@ -14,7 +15,7 @@ import ma.znagui.survey.validator.api.UniqueName;
 
 public class OwnerCreatDTO {
     @NotEmpty(message = "Le nom ne peut pas etre vide")
-    @UniqueName
+    @UniqueName(fieldName = "name",entityCl = Owner.class)
     private String name;
 
 

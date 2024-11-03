@@ -8,13 +8,19 @@ import ma.znagui.survey.validator.api.UniqueName;
 
 public class UniqueNameValidator implements ConstraintValidator<UniqueName,String> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+        @PersistenceContext
+        private EntityManager entityManager;
+
+    private String field;
+
+    private Class<?> entityC;
+
 
 
     @Override
     public void initialize(UniqueName constraintAnnotation) {
-        ConstraintValidator.super.initialize(constraintAnnotation);
+       this.field = constraintAnnotation.fieldName();
+       this.entityC = constraintAnnotation.entityCl();
     }
 
     @Override
@@ -22,7 +28,7 @@ public class UniqueNameValidator implements ConstraintValidator<UniqueName,Strin
         if(name == null || name.isEmpty()){
             return true;
         }
-        Long count = (Long) entityManager.createQuery("SELECT COUNT(o) FROM Owner o WHERE lower(o.name) = lower(:name) ").setParameter("name",name).getSingleResult();
+        Long count = (Long) entityManager.createQuery("SELECT COUNT(o) FROM "+ entityC.getSimpleName()+" o WHERE lower(o."+field+") = lower(:name) ").setParameter("name",name).getSingleResult();
 
         return count == 0;
     }
