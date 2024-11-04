@@ -26,7 +26,7 @@ public class UniqueNameValidator implements ConstraintValidator<UniqueName,Strin
     @Override
     public boolean isValid(String name, ConstraintValidatorContext constraintValidatorContext) {
         if(name == null || name.isEmpty()){
-            return true;
+            return false;
         }
         Long count = (Long) entityManager.createQuery("SELECT COUNT(o) FROM "+ entityC.getSimpleName()+" o WHERE lower(o."+field+") = lower(:name) ").setParameter("name",name).getSingleResult();
 

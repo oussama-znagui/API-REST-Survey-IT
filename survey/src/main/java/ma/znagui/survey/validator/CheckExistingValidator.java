@@ -21,7 +21,7 @@ public class CheckExistingValidator implements ConstraintValidator<CheckExisting
 
     public boolean isValid(Long aLong, ConstraintValidatorContext constraintValidatorContext) {
         if (aLong == null){
-            return true;
+            return false;
 
         }
         Long count = (Long) entityManager.createQuery("SELECT COUNT(*) FROM " + entityC.getSimpleName() + " e WHERE e.id = :id ").setParameter("id",aLong).getSingleResult();

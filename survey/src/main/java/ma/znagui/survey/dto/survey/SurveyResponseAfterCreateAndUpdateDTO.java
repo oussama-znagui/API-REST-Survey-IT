@@ -9,7 +9,7 @@ import ma.znagui.survey.dto.owner.OwnerResponseDTO;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class SurveyResponseAfterCreateDTO {
+public class SurveyResponseAfterCreateAndUpdateDTO {
     private Long id;
     private String title;
     private String description;

@@ -20,9 +20,9 @@ public class Subject {
     private String title;
 
     @ManyToOne
-
     @JoinColumn(name="parent_id")
     private Subject parent;
+
 
     @OneToMany(mappedBy = "parent")
     private List<Subject> subjects;
@@ -30,6 +30,10 @@ public class Subject {
 
     @OneToMany(mappedBy = "subject")
     private List<Question> questions;
+
+    @ManyToOne
+    @JoinColumn(name="survey_edition_id")
+    private SurveyEdition surveyEdition;
 
 
 

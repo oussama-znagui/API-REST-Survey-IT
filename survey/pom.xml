@@ -72,6 +72,13 @@
 
 
 <!--        mapstruct-->
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.6.0.Beta1</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
@@ -83,7 +90,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.0.0</version> <!-- Remplacez par la version appropriée -->
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <goals>

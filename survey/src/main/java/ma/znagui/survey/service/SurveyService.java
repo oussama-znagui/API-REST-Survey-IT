@@ -1,15 +1,18 @@
 package ma.znagui.survey.service;
 
 import ma.znagui.survey.dto.survey.SurveyCreateDTO;
-import ma.znagui.survey.dto.survey.SurveyResponseAfterCreateDTO;
+import ma.znagui.survey.dto.survey.SurveyResponseAfterCreateAndUpdateDTO;
 import ma.znagui.survey.dto.survey.SurveyResponseDTO;
+import ma.znagui.survey.dto.survey.SurveyUpdateDto;
+import ma.znagui.survey.entity.Survey;
 
 import java.util.List;
 
 public interface SurveyService {
-    SurveyResponseAfterCreateDTO saveSurvey(SurveyCreateDTO dto);
+    SurveyResponseAfterCreateAndUpdateDTO saveSurvey(SurveyCreateDTO dto);
     List<SurveyResponseDTO> getAll();
     SurveyResponseDTO getOne(Long id);
-//    SurveyResponseDTO updateSurvey( dto);
+    SurveyResponseAfterCreateAndUpdateDTO updateSurvey(SurveyUpdateDto dto, Long id);
     void deleteSurvey(Long id);
+    Survey getSurveyEntityByID(Long id);
 }
